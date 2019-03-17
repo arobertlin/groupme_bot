@@ -12,30 +12,34 @@ app = Flask(__name__)
 def webhook():
     data = request.get_json()
 
+    if data['name'] != 'test-bot' and data['name'] == 'Andrew Lin':
+       msg = 'shut up, Christian'
+       send_message(msg)
+
     # We don't want to reply to ourselves!
-    if data['name'] != 'Lyric Enright' and data['name'] == 'Christian McClain':
-        msg = 'shut up, Christian'
-        send_message(msg)
-
-    if data['name'] != 'Lyric Enright' and data['name'] == 'Rohil Rai':
-        msg = "Rohil you're hot"
-        send_message(msg)
-
-    if data['name'] != 'Lyric Enright' and data['name'] == 'Rohin Maganti':
-        msg = "Roooniiii"
-        send_message(msg)
-
-    if data['name'] != 'Lyric Enright' and data['name'] == 'Wesley Hibbs':
-        msg = "Miss you Wesley"
-        send_message(msg)
-
-    if data['name'] != 'Lyric Enright' and data['name'] == 'Easton Honaker':
-        msg = "Hi Easton!"
-        send_message(msg)
-
-    if data['name'] != 'Lyric Enright' and data['name'] == 'Andrew Lin':
-        msg = "Hi Andrew!"
-        send_message(msg)
+    # if data['name'] != 'Lyric Enright' and data['name'] == 'Christian McClain':
+    #     msg = 'shut up, Christian'
+    #     send_message(msg)
+    #
+    # if data['name'] != 'Lyric Enright' and data['name'] == 'Rohil Rai':
+    #     msg = "Rohil you're hot"
+    #     send_message(msg)
+    #
+    # if data['name'] != 'Lyric Enright' and data['name'] == 'Rohin Maganti':
+    #     msg = "Roooniiii"
+    #     send_message(msg)
+    #
+    # if data['name'] != 'Lyric Enright' and data['name'] == 'Wesley Hibbs':
+    #     msg = "Miss you Wesley"
+    #     send_message(msg)
+    #
+    # if data['name'] != 'Lyric Enright' and data['name'] == 'Easton Honaker':
+    #     msg = "Hi Easton!"
+    #     send_message(msg)
+    #
+    # if data['name'] != 'Lyric Enright' and data['name'] == 'Andrew Lin':
+    #     msg = "Hi Andrew!"
+    #     send_message(msg)
 
     return "ok", 200
 
