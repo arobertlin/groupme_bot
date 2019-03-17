@@ -33,6 +33,10 @@ def webhook():
         msg = "Hi Easton!"
         send_message(msg)
 
+    if data['name'] != 'Lyric Enright' and data['name'] == 'Andrew Lin':
+        msg = "Hi Andrew!"
+        send_message(msg)
+
     return "ok", 200
 
 def send_message(msg):
