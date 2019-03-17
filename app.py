@@ -13,8 +13,8 @@ def webhook():
   data = request.get_json()
 
   # We don't want to reply to ourselves!
-  if data['name'] != 'test_bot':
-    msg = '{}, you sent "{}".'.format(data['name'], data['text'])
+  if data['name'] != 'George' and data['name'] == 'George Lin':
+    msg = 'shut up, nerd'
     send_message(msg)
 
   return "ok", 200
