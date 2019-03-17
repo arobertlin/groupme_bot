@@ -10,14 +10,30 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def webhook():
-  data = request.get_json()
+    data = request.get_json()
 
-  # We don't want to reply to ourselves!
-  if data['name'] != 'George' and data['name'] == 'George Lin':
-    msg = 'shut up, nerd'
-    send_message(msg)
+    # We don't want to reply to ourselves!
+    if data['name'] != 'Lyric Enright' and data['name'] == 'Christian McClain':
+        msg = 'shut up, Christian'
+        send_message(msg)
 
-  return "ok", 200
+    if data['name'] != 'Lyric Enright' and data['name'] == 'Rohil Rai':
+        msg = "Rohil you're hot"
+        send_message(msg)
+
+    if data['name'] != 'Lyric Enright' and data['name'] == 'Rohin Maganti':
+        msg = "Roooniiii"
+        send_message(msg)
+
+    if data['name'] != 'Lyric Enright' and data['name'] == 'Wesley Hibbs':
+        msg = "Miss you Wesley"
+        send_message(msg)
+
+    if data['name'] != 'Lyric Enright' and data['name'] == 'Easton Honaker':
+        msg = "Hi Easton!"
+        send_message(msg)
+
+    return "ok", 200
 
 def send_message(msg):
   url  = 'https://api.groupme.com/v3/bots/post'
