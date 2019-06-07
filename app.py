@@ -37,6 +37,7 @@ def scheduled_job():
         msg = "Got some wounded soldiers from last night if anyone wants to help me finish them"
     send_message(msg)
 
+    return "ok", 200
 
 def send_message(msg):
     url  = 'https://api.groupme.com/v3/bots/post'
