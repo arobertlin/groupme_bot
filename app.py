@@ -43,9 +43,6 @@ def webhook():
     global lastname
     global id_code
 
-    print(AutoRemove)
-    print(firstname)
-    print(lastname)
     data = request.get_json()
     print(data)
 
@@ -77,6 +74,8 @@ def webhook():
             lastname = None
 
             print(AutoRemove)
+            print(firstname)
+            print(lastname)
         except:
             print('invalid input')
 
@@ -93,6 +92,8 @@ def webhook():
 
             AutoRemove = True
             print(AutoRemove)
+            print(firstname)
+            print(lastname)
         except:
             print('invalid input')
 
