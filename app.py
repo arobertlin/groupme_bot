@@ -24,9 +24,9 @@ def webhook():
 
     return "ok", 200
 
-# @timer.scheduled_job('interval', minutes=1)
-# def testfunction():
-#     print("This is a test")
+@timer.scheduled_job('interval', minutes=1)
+def test_function():
+    print("This is a test")
 
 @timer.scheduled_job('cron', day=6, hour=20, minute =1)
 def scheduled_job():
@@ -53,6 +53,6 @@ def send_message(msg):
     request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
 
-# timer.start()
+timer.start()
 
 
