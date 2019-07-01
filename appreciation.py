@@ -9,7 +9,28 @@ from urllib.request import Request, urlopen
 
 timer = BlockingScheduler()
 
-@timer.scheduled_job('interval', minutes=1)
+# @timer.scheduled_job('interval', minutes=1)
+# def test_function():
+#     i = random.randint(1,5)
+#     if i == 1:
+#         msg = "Appreciate 2-ply toilet paper and charmin ultra-soft while you still can"
+#     if i == 2:
+#         msg = "Appreicate Oliver Schmickel"
+#     if i == 3:
+#         msg = "Appreciate the days of Luis Nicolao (Vote for the Coach and the King)"
+#     if i == 4:
+#         msg = "Appreicate the Red Rockets, may their names be never forgotten"
+#     if i == 5:
+#         msg = "Appreciate the times when we didn't have a 3pm game on lawnparties"
+#     if i == 6:
+#         msg = "Appreciate Nice Weather"
+#     if i == 6:
+#         msg = "Appreciate non-dhall food"
+#     send_message(msg)
+#
+#     return "ok", 200
+
+@timer.scheduled_job('cron', day='first mon')
 def test_function():
     i = random.randint(1,5)
     if i == 1:
@@ -26,7 +47,7 @@ def test_function():
         msg = "Appreciate Nice Weather"
     if i == 6:
         msg = "Appreciate non-dhall food"
-    send_message(msg)
+    send_message(msg + " first mon")
 
     return "ok", 200
 
