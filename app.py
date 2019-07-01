@@ -9,9 +9,12 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+AutoRemove = True
+
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
+    print(data)
 
     #We don't want to reply to ourselves!
     if data['name'] == 'Andrew Lin':
