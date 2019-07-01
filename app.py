@@ -21,17 +21,27 @@ def webhook():
         msg = 'testing testing'
         send_message(msg)
 
-    if data['name'] == 'Andrew Lin' and data['text'].lower() == "autokick off":
-        msg = 'I will no longer autokick Sean Duncan when he talks'
-        send_message(msg)
-        AutoRemove = False
-        print(AutoRemove)
+    if data['name'] == 'Andrew Lin' and data['text'][0:12].lower() == "autokick off":
+        try:
+            firstname = msg.split()[2]
+            lastname = msg.split()[3]
+            msg = 'I will no longer autokick' + firstname + ' ' + lastname + 'when he talks'
+            send_message(msg)
+            AutoRemove = False
+            print(AutoRemove)
+        finally:
+            print('invalid input')
 
-    if data['name'] == 'Andrew Lin' and data['text'].lower() == "autokick on":
-        msg = 'I will now kick Sean Duncan when he talks.'
-        send_message(msg)
-        AutoRemove = True
-        print(AutoRemove)
+    if data['name'] == 'Andrew Lin' and data['text'][0:11].lower() == "autokick on":
+        try:
+            firstname = msg.split()[2]
+            lastname = msg.split()[3]
+            msg = 'I will now kick' + firstname + ' ' + lastname + 'when he talks.'
+            send_message(msg)
+            AutoRemove = True
+            print(AutoRemove)
+        finally:
+            print('invalid input')
 
     # if AutoRemove:
     #     print(AutoRemove)
