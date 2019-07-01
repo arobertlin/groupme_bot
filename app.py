@@ -23,8 +23,8 @@ def webhook():
 
     if data['name'] == 'Andrew Lin' and data['text'][0:12].lower() == "autokick off":
         try:
-            firstname = msg.split()[2]
-            lastname = msg.split()[3]
+            firstname = msg['text'].split()[2]
+            lastname = msg['text'].split()[3]
             msg = 'I will no longer autokick' + firstname + ' ' + lastname + 'when he talks'
             send_message(msg)
             AutoRemove = False
@@ -34,8 +34,8 @@ def webhook():
 
     if data['name'] == 'Andrew Lin' and data['text'][0:11].lower() == "autokick on":
         try:
-            firstname = msg.split()[2]
-            lastname = msg.split()[3]
+            firstname = msg['text'].split()[2]
+            lastname = msg['text'].split()[3]
             msg = 'I will now kick' + firstname + ' ' + lastname + 'when he talks.'
             send_message(msg)
             AutoRemove = True
