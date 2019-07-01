@@ -59,7 +59,8 @@ def webhook():
         if id_code is not None:
             print ('KICKING')
             kick()
-        else print('ID CODE IS NONE')
+        else:
+            print('ID CODE IS NONE')
 
     if data['name'] == 'Andrew Lin' and data['text'][0:12].lower() == "autokick off":
         try:
