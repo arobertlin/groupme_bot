@@ -16,8 +16,8 @@ firstname = None
 lastname = None
 
 def get_id():
+    kickid = ""
     if firstname is not None and lastname is not None:
-        kickid = ""
         url = 'https://api.groupme.com/v3/groups/50889818?token=3ad70e40394a0137a92656b15122bc3d'
         r = requests.get(url)
         k = r.json()['response']['members']
