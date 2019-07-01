@@ -10,7 +10,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-AutoRemove = True
+AutoRemove = False
 
 firstname = None
 lastname = None
@@ -66,8 +66,8 @@ def webhook():
         try:
             firstname = data['text'].split()[2]
             lastname = data['text'].split()[3]
-            msg = 'I will no longer autokick ' + firstname + ' ' + lastname + ' when he talks'
-            send_message(msg)
+            # msg = 'I will no longer autokick ' + firstname + ' ' + lastname + ' when he talks'
+            # send_message(msg)
 
             id_code = get_id()
             print(id_code)
@@ -85,8 +85,8 @@ def webhook():
         try:
             firstname = data['text'].split()[2]
             lastname = data['text'].split()[3]
-            msg = 'I will now kick ' + firstname + ' ' + lastname + ' when he talks.'
-            send_message(msg)
+            # msg = 'I will now kick ' + firstname + ' ' + lastname + ' when he talks.'
+            # send_message(msg)
 
             id_code = get_id()
             print(id_code)
