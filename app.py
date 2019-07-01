@@ -32,6 +32,11 @@ def get_id():
 
 @app.route('/', methods=['POST'])
 def webhook():
+    global AutoRemove
+    global firstname
+    global lastname
+    
+    print(AutoRemove)
     data = request.get_json()
     print(data)
 
