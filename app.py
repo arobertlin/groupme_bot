@@ -12,6 +12,19 @@ app = Flask(__name__)
 
 AutoRemove = True
 
+def get_id(firstname, lastname):
+    url = 'https://api.groupme.com/v3/groups/50889818?token=3ad70e40394a0137a92656b15122bc3d'
+    r = requests.get(url)
+    k = r.json()['response']['members']
+    for member in k:
+        first = member['nickname'].split()[0]
+        last = member['nickname'].split()[1]
+        if firstname == first:
+            if lastname == last:
+                kickid = member['id']
+
+    return(kickid)
+
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
@@ -28,7 +41,12 @@ def webhook():
             lastname = data['text'].split()[3]
             msg = 'I will no longer autokick ' + firstname + ' ' + lastname + ' when he talks'
             send_message(msg)
+
+            id_code = get_id(firstname, lastname)
+            print(id_code)
+
             AutoRemove = False
+
             print(AutoRemove)
         finally:
             print('invalid input')
@@ -39,22 +57,17 @@ def webhook():
             lastname = data['text'].split()[3]
             msg = 'I will now kick ' + firstname + ' ' + lastname + ' when he talks.'
             send_message(msg)
+
+            id_code = get_id(firstname, lastname)
+            print(id_code)
+
             AutoRemove = True
             print(AutoRemove)
         finally:
             print('invalid input')
 
     if data['name'] == 'Andrew Lin':
-        url = 'https://api.groupme.com/v3/groups/50889818?token=3ad70e40394a0137a92656b15122bc3d'
-        r = requests.get(url)
-        k = r.json()['response']['members']
-        for member in k:
-            first = member['nickname'].split()[0]
-            last = member['nickname'].split()[1]
-            if firstname == first:
-                if lastname == last:
-                    kickid = member['id']
-                    print(kickid)
+
 
 
     # if AutoRemove:
