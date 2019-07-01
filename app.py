@@ -49,7 +49,13 @@ def webhook():
         r = requests.get(url)
         k = r.json()['response']['members']
         for member in k:
-            print(member['nickname'])
+            first = member.split()[0]
+            last = member.split()[1]
+            if firstname == first:
+                if lastname == last:
+                    kickid = member['id']
+                    print(kickid)
+
 
     # if AutoRemove:
     #     print(AutoRemove)
