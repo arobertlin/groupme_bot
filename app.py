@@ -56,7 +56,10 @@ def webhook():
 
     if data['name'].split()[0] == firstname and data['name'].split()[1] == lastname and AutoRemove == True:
         print('will kick ' + firstname + ' ' + lastname)
-        kick()
+        if id_code is not None:
+            print ('KICKING')
+            kick()
+        else print('ID CODE IS NONE')
 
     if data['name'] == 'Andrew Lin' and data['text'][0:12].lower() == "autokick off":
         try:
