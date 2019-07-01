@@ -65,7 +65,7 @@ def webhook():
             msg = 'I will now kick ' + firstname + ' ' + lastname + ' when he talks.'
             send_message(msg)
 
-            id_code = get_id(firstname, lastname)
+            id_code = get_id()
             print(id_code)
 
             AutoRemove = True
