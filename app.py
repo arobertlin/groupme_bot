@@ -1,6 +1,7 @@
 import os
 import json
 import random
+import requests
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -25,7 +26,7 @@ def webhook():
         try:
             firstname = data['text'].split()[2]
             lastname = data['text'].split()[3]
-            msg = 'I will no longer autokick' + firstname + ' ' + lastname + 'when he talks'
+            msg = 'I will no longer autokick ' + firstname + ' ' + lastname + ' when he talks'
             send_message(msg)
             AutoRemove = False
             print(AutoRemove)
@@ -36,12 +37,19 @@ def webhook():
         try:
             firstname = data['text'].split()[2]
             lastname = data['text'].split()[3]
-            msg = 'I will now kick' + firstname + ' ' + lastname + 'when he talks.'
+            msg = 'I will now kick ' + firstname + ' ' + lastname + ' when he talks.'
             send_message(msg)
             AutoRemove = True
             print(AutoRemove)
         finally:
             print('invalid input')
+
+    if data['name'] == 'Andrew Lin':
+        url = 'https://api.groupme.com/v3/groups/50889818?token=3ad70e40394a0137a92656b15122bc3d'
+        r = requests.get(url)
+        k = r.json()['response']['members']
+        for member in k:
+            print(member['nickname'])
 
     # if AutoRemove:
     #     print(AutoRemove)
