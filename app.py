@@ -14,6 +14,7 @@ AutoRemove = True
 
 firstname = None
 lastname = None
+idcode = None
 
 def get_id():
     kickid = ""
@@ -35,7 +36,8 @@ def webhook():
     global AutoRemove
     global firstname
     global lastname
-    
+    global id_code
+
     print(AutoRemove)
     data = request.get_json()
     print(data)
@@ -60,7 +62,7 @@ def webhook():
             lastname = None
 
             print(AutoRemove)
-        finally:
+        except:
             print('invalid input')
 
     if data['name'] == 'Andrew Lin' and data['text'][0:11].lower() == "autokick on":
@@ -80,6 +82,7 @@ def webhook():
 
     if data['name'].split()[0] == firstname and data['name'].split()[1] == lastname and AutoRemove == True:
         print('will kick ' + firstname + ' ' + lastname)
+        print(id_code)
 
 
 

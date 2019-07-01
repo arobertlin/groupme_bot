@@ -30,7 +30,7 @@ timer = BlockingScheduler()
 #
 #     return "ok", 200
 
-@timer.scheduled_job('cron', day='first mon')
+@timer.scheduled_job('cron', day=1)
 def test_function():
     i = random.randint(1,5)
     if i == 1:
