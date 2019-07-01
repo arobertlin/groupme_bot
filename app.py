@@ -44,13 +44,15 @@ def webhook():
     global id_code
 
     print(AutoRemove)
+    print(firstname)
+    print(lastname)
     data = request.get_json()
     print(data)
 
     #We don't want to reply to ourselves!
-    if data['name'] == 'Andrew Lin':
-        msg = 'testing testing'
-        send_message(msg)
+    # if data['name'] == 'Andrew Lin':
+    #     msg = 'testing testing'
+    #     send_message(msg)
 
     if data['name'].split()[0] == firstname and data['name'].split()[1] == lastname and AutoRemove == True:
         print('will kick ' + firstname + ' ' + lastname)
