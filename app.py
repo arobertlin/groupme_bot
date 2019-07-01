@@ -16,6 +16,11 @@ firstname = None
 lastname = None
 idcode = None
 
+def kick():
+    url = 'https://api.groupme.com/v3/groups/50889818/members/' + idcode + '/remove?token=3ad70e40394a0137a92656b15122bc3d'
+    # r = requests.post(url)
+    print(url)
+
 def get_id():
     kickid = ""
     if firstname is not None and lastname is not None:
@@ -47,6 +52,10 @@ def webhook():
         msg = 'testing testing'
         send_message(msg)
 
+    if data['name'].split()[0] == firstname and data['name'].split()[1] == lastname and AutoRemove == True:
+        print('will kick ' + firstname + ' ' + lastname)
+        kick()
+
     if data['name'] == 'Andrew Lin' and data['text'][0:12].lower() == "autokick off":
         try:
             firstname = data['text'].split()[2]
@@ -77,12 +86,8 @@ def webhook():
 
             AutoRemove = True
             print(AutoRemove)
-        finally:
+        except:
             print('invalid input')
-
-    if data['name'].split()[0] == firstname and data['name'].split()[1] == lastname and AutoRemove == True:
-        print('will kick ' + firstname + ' ' + lastname)
-        print(id_code)
 
 
 
