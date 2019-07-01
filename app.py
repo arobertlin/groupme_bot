@@ -22,10 +22,14 @@ def webhook():
         send_message(msg)
 
     if data['name'] == 'Andrew Lin' and data['text'].lower() == "autokick off":
+        msg = 'I will no longer autokick Sean Duncan when he talks'
+        send_message(msg)
         AutoRemove = False
         print(AutoRemove)
 
     if data['name'] == 'Andrew Lin' and data['text'].lower() == "autokick on":
+        msg = 'I will now kick Sean Duncan when he talks.'
+        send_message(msg)
         AutoRemove = True
         print(AutoRemove)
 
