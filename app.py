@@ -43,6 +43,10 @@ def webhook():
     global lastname
     global id_code
 
+    print('before loop')
+    print(AutoRemove)
+    print(firstname)
+    print(lastname)
     data = request.get_json()
     print(data)
 
