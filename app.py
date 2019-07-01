@@ -21,6 +21,17 @@ def webhook():
         msg = 'testing testing'
         send_message(msg)
 
+    if data['name'] == 'Andrew Lin' and data['text'].lower() == "autokick off":
+        AutoRemove = False
+        print(AutoRemove)
+
+    if data['name'] == 'Andrew Lin' and data['text'].lower() == "autokick on":
+        AutoRemove = True
+        print(AutoRemove)
+
+    # if AutoRemove:
+    #     print(AutoRemove)
+
     return "ok", 200
 
 def send_message(msg):
