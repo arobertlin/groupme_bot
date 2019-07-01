@@ -77,9 +77,7 @@ def webhook():
             print('invalid input')
 
     if data['name'] == 'Andrew Lin' and data['text'][0:11].lower() == "autokick on":
-        global firstname
-        global lastname
-        
+
         try:
             firstname = data['text'].split()[2]
             lastname = data['text'].split()[3]
